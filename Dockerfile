@@ -9,7 +9,8 @@ COPY requirements.txt .
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copy your script
+# Copy the model and your script
+COPY all-MiniLM-L6-v2 /app/all-MiniLM-L6-v2
 COPY run_model.py /app/run_model.py
 
 # Expose the port your app runs on
