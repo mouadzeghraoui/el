@@ -1,15 +1,15 @@
-# Use a lightweight Python image
-FROM python:3.8-slim
+# Use a lightweight Python image with a more recent version
+FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copy the model and your script
-COPY all-MiniLM-L6-v2 /app/all-MiniLM-L6-v2
+# Copy your script
 COPY run_model.py /app/run_model.py
 
 # Expose the port your app runs on
